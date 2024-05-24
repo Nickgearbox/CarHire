@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Register</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="{%static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lobster&display=swap">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body style="background-image: url('static/img/bmw.jpg');">
+  <div class="container" style="background-color: transparent;">
+    <div class="title" style="color: orange;">Registration</div>
+    {% for message in messages %}
+    <div class="alert alert-{{message.tag}} alert-dismissible fade show" role="alert" style="color: orange;">
+      <strong></strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div class="content">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details" style="color: orange;">Name</span>
+            <input type="text" placeholder="Enter your first name" name="name" required>
+          </div>
+          <div class="input-box">
+            <span class="details" style="color: orange;">Username</span>
+            <input type="text" placeholder="Enter your last name" name="username" required>
+          </div>
+          <div class="input-box">
+            <span class="details" style="color: orange;">Email</span>
+            <input type="text" placeholder="Enter your email" name="email" required>
+          </div>
+          <div class="input-box">
+            <span class="details" style="color: orange;">Phone Number</span>
+            <input type="text" placeholder="Enter your number" name="phone" required>
+          </div>
+          <div class="input-box">
+            <span class="details" style="color: orange;">Password</span>
+            <input type="text" placeholder="Enter your password" name="password" required>
+          </div>
+          <div class="input-box">
+            <span class="details" style="color: orange;">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" name="password2" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title" style="color: orange;">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender" style="color: orange;">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender" style="color: orange;">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender" style="color: orange;">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+          <h5 style="text-align: center; color: white;" >Already have an Account?<a href="{% url 'login'%}" style="color: orange;">Login</a> </h5>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
